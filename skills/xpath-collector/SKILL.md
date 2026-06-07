@@ -33,9 +33,17 @@ playwright install chromium
 
 ## Шаг 3 — Запусти скрипт сбора
 
-Используй `bash_tool` для запуска скрипта из `scripts/collect_xpath.py`.
+Используй `bash_tool` для запуска скрипта из `scripts/collect_xpath.py`:
 
-Передай параметры через переменные окружения или аргументы.
+```bash
+python scripts/collect_xpath.py --url URL [--scope all|buttons|inputs|links] [--headless] [--slow-mo 500]
+```
+
+**По умолчанию** браузер открывается визуально (headed) с задержкой 500ms — каждый найденный элемент подсвечивается красной рамкой прямо в браузере.
+
+Флаги:
+- `--headless` — запустить без UI (фоновый режим)
+- `--slow-mo N` — изменить задержку в мс (например `--slow-mo 800` для более медленного просмотра)
 
 Читай скрипт: `scripts/collect_xpath.py`
 
@@ -92,4 +100,3 @@ CANCEL_BTN = ("locator", '//button[contains(@class,"btn-secondary")]', "Cancel b
 - Статусы транзакций (pending / confirmed / failed)
 - Кнопки Copy (адрес, сумма)
 - Элементы биржи (пары, котировки, кнопки торговли)
-
